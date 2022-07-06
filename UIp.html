@@ -1,90 +1,124 @@
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Login page</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body{
-			height:1600px;
-			}
-		
-		video
-		{
-			width: 800px;
-			height: auto;
-			float:center;
-			margin-top:-1000px;
-			margin-left:100px;
-			
-			
-		}
-		div.b{
-			width: 50%;
-			background-color: black;
-			color: white	;
-			padding: 0.5px 0.5px;
-			border: 2px solid white;
-			border-radius: 50px;
-			cursor: pointer;
-			float: center;
-			margin-left: 80px;
-			margin-top: 50px;
-			font-size:80px;
-		}
-			
-		
-		.text{
-			width: 20%;
-			background-color: black;
-			color: white	;
-			
-			cursor: pointer;
-			float: center;
-			margin-left: -10px;
-			margin-top: 50px;
-			font-size:15px;
-			color: white;
-		}
-			
-		div.h
-		{
-			width: 50%;
-			background-color: black;
-			color: white	;
-			padding: 0.5px 0.5px;
-			border: 2px solid white;
-			border-radius: 50px;
-			cursor: pointer;
-			float: center;
-			margin-left: 80px;
-			margin-top: 50px;
-			font-size:80px;
-			
-		}
-		
-		
-		body{
-			background-image:url('https://w.wallhaven.cc/full/0p/wallhaven-0p95xm.jpg');
-			background-colour:black;
-			background-repeat:no-repeat;
-			background-radius:15px;
-			
-		}
-		
-		div.a{
-		border: 5px solid black;
-		height: 400px;
-		width: 450px;
-		background-color: black;
-		text-align:center;
-		border-radius: 15px;
-		margin-left:1000px;
-		margin-top:790px;
-	}
-	input[type=text], select, textarea {
+    <script>
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Enter your Username: ","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+</script>
+    <title>Login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            height:1600px;
+            }
+
+        video
+        {
+            width: 800px;
+            height: auto;
+            float:center;
+            margin-top:-1000px;
+            margin-left:100px;
+
+
+        }
+        div.b{
+            width: 50%;
+            background-color: black;
+            color: white    ;
+            padding: 0.5px 0.5px;
+            border: 2px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            float: center;
+            margin-left: 80px;
+            margin-top: 50px;
+            font-size:80px;
+        }
+
+
+        .text{
+            width: 20%;
+            background-color: black;
+            color: white    ;
+
+            cursor: pointer;
+            float: center;
+            margin-left: -10px;
+            margin-top: 50px;
+            font-size:15px;
+            color: white;
+        }
+
+        div.h
+        {
+            width: 50%;
+            background-color: black;
+            color: white    ;
+            padding: 0.5px 0.5px;
+            border: 2px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            float: center;
+            margin-left: 80px;
+            margin-top: 50px;
+            font-size:80px;
+
+        }
+
+
+        body{
+            background-image:url('https://w.wallhaven.cc/full/0p/wallhaven-0p95xm.jpg');
+            background-colour:black;
+            background-repeat:no-repeat;
+            background-radius:15px;
+
+        }
+
+        div.a{
+        border: 5px solid black;
+        height: 400px;
+        width: 450px;
+        background-color: black;
+        text-align:center;
+        border-radius: 15px;
+        margin-left:1000px;
+        margin-top:790px;
+    }
+    input[type=text], select, textarea {
   width: 70%;
   padding: 12px;
   border: 5px solid light grey;
@@ -99,7 +133,7 @@ label {
 
 input[type=submit] {
   background-color: white;
-  color: black	;
+  color: black    ;
   padding: 12px 30px;
   border: 1px solid light grey;
   border-radius: 50px;
@@ -140,32 +174,30 @@ input[type=submit]:hover {
 
 }
 
-	</style>
+    </style>
 </head>
 
-<body>
-	<div class="h">
-		<p align="center"> CAR-NIVAL </p>
-	
-	
-	</div>
-	<i><p style="color:white;font-size:30px;margin-left:170px;"> " Price is what you pay, VALUE is what you get" </p></i>
-	
+<body onload="checkCookie()">
+    <div class="h">
+        <p align="center"> CAR-NIVAL </p>
+
+
+    </div>
+    <i><p style="color:white;font-size:30px;margin-left:170px;"> " Price is what you pay, VALUE is what you get" </p></i>
 
 <!--<image src="https://cdn.barbdelollis.com/wp-content/uploads/plain-black-screen-hdblackwallpaper_6159.jpg" style="width:1600px;height:1200px;></image>-->
 
 
-		<!--<pre align="center" style="colour:white;"><i>
-			 " Price is what you pay, VALUE is what you get"
-			 
-			 </i>
-			 </pre>-->
-	
-	
+        <!--<pre align="center" style="colour:white;"><i>
+             " Price is what you pay, VALUE is what you get"
+
+             </i>
+             </pre>-->
+
 
 <div class="a">
-	<div class="container">
-  <form action="./project.html">
+    <div class="container">
+  <form action="project.html">
   <div class="row">
     <div class="col-25">
       <label for="fname">First Name</label>
@@ -213,8 +245,8 @@ input[type=submit]:hover {
 </div>
 
 
-	
- 
+
+
 
 </div>
 <!--<image src="https://cdn.barbdelollis.com/wp-content/uploads/plain-black-screen-hdblackwallpaper_6159.jpg" style="margin-top:1500;"></image>-->
